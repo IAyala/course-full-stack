@@ -18,6 +18,45 @@
 </head>
 
 <body>
+    <!--
+        navbar: Bootstrap class to customize de navigation bar
+        navbar-dark: could be navbar-light also
+        navbar-expand-sm: For small and extra small screens, this will be toggled. A plugin must be added to incorporate this behaviour
+        bg-primary: Background color. To be specialized by css classes later, so this will be removed because it is marked as !important and cannot be overriden
+        fixed-top: Fixes navigation bar to the top. You will see the navigation bar always
+    -->
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <!--
+            Using container class helps to define the width of the elements inside the navigation bar
+        -->
+        <div class="container">
+            <!-- When screen size is very small, you will use this button -->
+            <!-- data-toggle attribute is a javascript component usage in bootstrap. It is called bootstrap javascript components-->
+            <!-- data-target attribute is the id of a div class that should contain the links for navigation -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ElNombreNavBar">
+                <!-- navbar-toggler-icon is the typical icon you see on mobile websites -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Using navbar-brand class is intended to add your corporate information -->
+            <!-- mr-auto sets to automatic the right margin so all content is pushed as much to the left -->
+            <a class="navbar-brand mr-auto" href="#">Ristorante Con Fusion</a>
+            <!-- This div configured as it is here will only be shown when screen size is small or extra small -->
+            <div class="collapse navbar-collapse" id="ElNombreNavBar">
+                <!-- 
+                    List of links to be displayed in the navigation bar 
+                    Use navbar-nav class and mr-auto sets to automatic the right margin so all content is pushed as much to the left
+                -->
+                <ul class="navbar-nav mr-auto">
+                    <!-- Use nav-item for every link and nav-link for the link itself -->
+                    <!-- active class applied to the li makes it to appear highlighted -->
+                    <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./aboutus.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <header class="jumbotron">
         <div class="container">
@@ -73,7 +112,7 @@
                     <h5>Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="./aboutus.html">About</a></li>
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
