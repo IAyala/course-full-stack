@@ -44,7 +44,7 @@
             </button>
             <!-- Using navbar-brand class is intended to add your corporate information -->
             <!-- mr-auto sets to automatic the right margin so all content is pushed as much to the left -->
-            <a class="navbar-brand mr-auto" href="#">Ristorante Con Fusion</a>
+            <a class="navbar-brand mr-auto" href="./index.html"><img src="img/logo.png" height="30" width="41"></a>
             <!-- This div configured as it is here will only be shown when screen size is small or extra small -->
             <div class="collapse navbar-collapse" id="ElNombreNavBar">
                 <!-- 
@@ -71,20 +71,34 @@
                     <h1>Ristorante con Fusion</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm align-self-center">
+                    <!-- img-fluid means that the image will be responsive and will adapt to screen size -->
+                    <img src="img/logo.png" class="img-fluid">
                 </div>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <div class="row-content align-items-center">
-            <div class="col-12 col-sm-4 col-md-3">
-                <h3>Our Lipsmacking Culinary Creations</h3>
+        <div class="row row-content align-items-center">
+            <div class="col col-sm order-sm-first col-md">
+                <div class="media">
+                    <!-- 
+                        d-flex is needed to put an image inside class media <div>
+                        mr-3 is margin right 3
+                        img-thumbnail to give it a border appearance
+                        align-self-center alligns to the center of the description
+                    -->
+                    <img class="d-flex mr-3 img-thumbnail align-self-center" src="img/uthappizza.png" alt="uthapizza">
+                    <div class="media-body">
+                        <!-- mt0 is margin top 0 -->
+                        <h2 class="mt-0">Uthappizza</h2>
+                        <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col col-sm col-md">
-                <h2>Uthappizza</h2>
-                <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+            <div class="col-12 col-sm-4 order-sm-last col-md-3">
+                <h3>Our Lipsmacking Culinary Creations</h3>
             </div>
         </div>
 
@@ -100,13 +114,18 @@
         </div>
 
         <div class="row row-content align-items-center">
-            <div class="col-12 col-sm-4 col-md-3">
-                <h3>Meet our Culinary Specialists</h3>
+            <div class="col col-sm order-sm-first col-md">
+                <div class="media">
+                    <img class="d-flex mr-3 img-thumbnail align-self-center" src="img/alberto.png" alt="alberto">
+                    <div class="media-body">
+                        <h2 class="mt-0">Alberto Somayya</h2>
+                        <h4>Executive Chef</h4>
+                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+                    </div>
+                </div>
             </div>
-            <div class="col col-sm col-md">
-                <h2>Alberto Somayya</h2>
-                <h4>Executive Chef</h4>
-                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+            <div class="col-12 col-sm-4 order-sm-last col-md-3">
+                <h3>Meet our Culinary Specialists</h3>
             </div>
         </div>
     </div>
