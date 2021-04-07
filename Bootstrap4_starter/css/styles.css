@@ -40,3 +40,7 @@ body {
 .navbar-dark {
     background-color: #512DA8;
 }
+
+.margin-left-15 {
+    margin-left: 15px;
+}

@@ -71,9 +71,14 @@
                     <h1>Ristorante con Fusion</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
-                <div class="col-12 col-sm align-self-center">
+                <div class="col-12 col-sm-3 align-self-center">
                     <!-- img-fluid means that the image will be responsive and will adapt to screen size -->
                     <img src="img/logo.png" class="img-fluid">
+                </div>
+                <div class="col-12 col-sm-3 align-self-center">
+                    <a class="btn btn-primary bg-warning btn-block text-dark" href="#myCard">
+                        Reserve a Table
+                    </a>
                 </div>
             </div>
         </div>
@@ -81,6 +86,9 @@
 
     <div class="container">
         <div class="row row-content align-items-center">
+            <div class="col-12 col-sm-4 order-sm-last col-md-3">
+                <h3>Our Lipsmacking Culinary Creations</h3>
+            </div>
             <div class="col col-sm order-sm-first col-md">
                 <div class="media">
                     <!-- 
@@ -92,30 +100,36 @@
                     <img class="d-flex mr-3 img-thumbnail align-self-center" src="img/uthappizza.png" alt="uthapizza">
                     <div class="media-body">
                         <!-- mt0 is margin top 0 -->
-                        <!-- add a badge here! -->
-                        <h2 class="mt-0">Uthappizza <span class="badge badge-danger">HOT</span> <spac class="badge badge-pill badge-secondary">$4.99</spac></h2>
+                        <!-- add a badge here!
+                        badge-pill has rounded corners
+                        -->
+                        <h2 class="mt-0">Uthappizza <span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-secondary">$4.99</span></h2>
                         <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 order-sm-last col-md-3">
-                <h3>Our Lipsmacking Culinary Creations</h3>
-            </div>
         </div>
 
-
         <div class="row row-content align-items-center">
-            <div class="col-12 col-sm-4 order-sm-last col-md-3">
+            <div class="col-8 col-sm-4 order-sm-first col-md-3">
                 <h3>This Month's Promotions</h3>
             </div>
-            <div class="col col-sm order-sm-first col-md">
-                <h2>Weekend Grand Buffet</h2>
-                <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+            <div class="col col-sm order-sm-last col-md">
+                <div class="media">
+                    <div class="media-body">
+                        <h2 class="mt-0">Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
+                        <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person</p>
+                    </div>
+                    <img class="d-flex mr-3 img-thumbnail align-self-center" src="img/buffet.png" alt="alberto">
+                </div>
             </div>
         </div>
 
         <div class="row row-content align-items-center">
-            <div class="col col-sm order-sm-first col-md">
+            <div class="col-12 col-sm-4 order-sm-last col-md-3">
+                <h3>Meet our Culinary Specialists</h3>
+            </div>
+            <div class="col-12 col-sm order-sm-first col-md">
                 <div class="media">
                     <img class="d-flex mr-3 img-thumbnail align-self-center" src="img/alberto.png" alt="alberto">
                     <div class="media-body">
@@ -125,8 +139,58 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 order-sm-last col-md-3">
-                <h3>Meet our Culinary Specialists</h3>
+        </div>
+
+        <div class="row row-content align-items-center justify-content-center">
+            <div class="col-12 col-sm-8">
+                <div class="card" id="myCard">
+                    <!-- bg for the background -->
+                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <!-- Notice label for is the same as the input id... -->
+                            <label for="nbguests" class="col-sm-2 col-form-label">Number of Guests</label>
+                            <div class="col-1 form-check margin-left-15">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio1">
+                                <label class="form-check-label" for="flexRadio1">1</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio2">
+                                <label class="form-check-label" for="flexRadio2">2</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio3">
+                                <label class="form-check-label" for="flexRadio3">3</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio4">
+                                <label class="form-check-label" for="flexRadio4">4</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio5">
+                                <label class="form-check-label" for="flexRadio5">5</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio6">
+                                <label class="form-check-label" for="flexRadio6">6</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="datetime" class="col-sm-2 col-form-label">Date and Time</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="time" class="form-control" id="time" name="time" placeholder="Time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-3">
+                                <button type="submit" class="btn btn-primary">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
