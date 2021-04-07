@@ -116,80 +116,109 @@
         </div>
 
 
-        <div class="container">
-            <div class="row-content">
-                <div class="col-12">
-                    <h2>Corporate Leadership</h2>
-                    <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
-                    <p class="d-none d-sm-block">Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
-                    <h3>Dhanasekaran Witherspoon <small>Chief Food Officer</small></h3>
-                    <p class="d-none d-sm-block">Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
-                    <h3>Agumbe Tang <small>Chief Taste Officer</small></h3>
-                    <p class="d-none d-sm-block">Blessed with the most discerning gustatory sense, Agumbe, our CTO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, <em>You click only if you survive my lick.</em></p>
-                    <h3>Alberto Somayya <small>Executive Chef</small></h3>
-                    <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, <em>Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!</em></p>
-                </div>
-            </div>
-
-            <!-- We will introduce the table here -->
-            <div class="row-content">
-                <div class="col-12 col-sm-9">
-                    <h2>Facts &amp; Figures</h2>
-                    <!-- Many classes can be applied
-                    table-bordered: Paints borders
-                    table-striped: Zebra style
-                    table_hover: highlights when mouse goes over
+        <div class="row-content">
+            <div class="col-12">
+                <h2>Corporate Leadership</h2>
+                <!-- Navigation Tabs here -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <!-- active only in one of them -->
+                        <a class="nav-link active" href="#peter" role="tab" data-toggle="tab">Peter, CEO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dhana" role="tab" data-toggle="tab">Dhana, CFO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#agumbe" role="tab" data-toggle="tab">Agumbe, CTO</a>
+                    </li class="nav-item">
+                    <li>
+                        <a class="nav-link" href="#alberto" role="tab" data-toggle="tab">Alberto, Exec. Chef</a>
+                    </li>
                     
-                    Also when screen is very small you get the table is "scrollable" that is a responsive support from Bootstrap
+                </ul>
+                <div class="tab-content"> <!-- some css is applied to this class in styles.css -->
+                    <!-- 
+                        show class applied only to the content that should be shown when the page is rendered 
+                        also active just one time
+                        id=peter so there is the link between tab-pane <div> and nav-item <li>
                     -->
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">&nbsp;</th> <!-- This is the empty upper left corner-->
-                                    <th scope="col">2013</th>
-                                    <th scope="col">2014</th>
-                                    <th scope="col">2015</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <!-- 
-                                    You can change bg colour applying classes like table-warning, table-success...
-                                    If you apply it to <tr> tag it will be promoted to all the row
-                                    -->
-                                    <th scope="row">Employees</th>
-                                    <td class="table-warning">15 </td>
-                                    <td>30</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr class="table-success">
-                                    <th scope="row">Guests Served</th>
-                                    <td>15000</td>
-                                    <td>45000</td>
-                                    <td>100,000</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Special Events</th>
-                                    <td>3</td>
-                                    <td class="table-danger">20</td>
-                                    <td>45</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Annual Turnover</th>
-                                    <td>$251,325</td>
-                                    <td class="table-info">$1,250,375</td>
-                                    <td>~$3,000,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div role="tabpanel" class="tab-pane fade show active" id="peter">
+                        <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
+                        <p class="d-none d-sm-block">Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="dhana">
+                        <h3>Dhanasekaran Witherspoon <small>Chief Food Officer</small></h3>
+                        <p class="d-none d-sm-block">Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="agumbe">
+                        <h3>Agumbe Tang <small>Chief Taste Officer</small></h3>
+                        <p class="d-none d-sm-block">Blessed with the most discerning gustatory sense, Agumbe, our CTO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, <em>You click only if you survive my lick.</em></p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="alberto">
+                        <h3>Alberto Somayya <small>Executive Chef</small></h3>
+                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, <em>Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!</em></p>
                     </div>
                 </div>
-                <div class="col-12 col-sm-3">
+            </div>
+        </div>
+
+        <!-- We will introduce the table here -->
+        <div class="row-content">
+            <div class="col-12 col-sm-9">
+                <h2>Facts &amp; Figures</h2>
+                <!-- Many classes can be applied
+                table-bordered: Paints borders
+                table-striped: Zebra style
+                table_hover: highlights when mouse goes over
+                
+                Also when screen is very small you get the table is "scrollable" that is a responsive support from Bootstrap
+                -->
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">&nbsp;</th> <!-- This is the empty upper left corner-->
+                                <th scope="col">2013</th>
+                                <th scope="col">2014</th>
+                                <th scope="col">2015</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!-- 
+                                You can change bg colour applying classes like table-warning, table-success...
+                                If you apply it to <tr> tag it will be promoted to all the row
+                                -->
+                                <th scope="row">Employees</th>
+                                <td class="table-warning">15 </td>
+                                <td>30</td>
+                                <td>40</td>
+                            </tr>
+                            <tr class="table-success">
+                                <th scope="row">Guests Served</th>
+                                <td>15000</td>
+                                <td>45000</td>
+                                <td>100,000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Special Events</th>
+                                <td>3</td>
+                                <td class="table-danger">20</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Annual Turnover</th>
+                                <td>$251,325</td>
+                                <td class="table-info">$1,250,375</td>
+                                <td>~$3,000,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-       </div>
-
+            <div class="col-12 col-sm-3">
+            </div>
+        </div>
     </div>
 
     <footer class="footer">
