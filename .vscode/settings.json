@@ -1,4 +1,6 @@
 {
     "http.proxyAuthorization": null,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "html.validate.styles": true,
+    "html.validate.scripts": true
 }
