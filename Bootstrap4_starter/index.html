@@ -111,6 +111,80 @@
             </div>
         </div>
     </div>
+    
+    <div id="mymodalForm" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <!-- Notice label for is the same as the input id... -->
+                            <label for="nbguests" class="col-sm-2 col-form-label">Number of Guests</label>
+                            <div class="col-1 form-check margin-left-15">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio1">
+                                <label class="form-check-label" for="flexRadio1">1</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio2">
+                                <label class="form-check-label" for="flexRadio2">2</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio3">
+                                <label class="form-check-label" for="flexRadio3">3</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio4">
+                                <label class="form-check-label" for="flexRadio4">4</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio5">
+                                <label class="form-check-label" for="flexRadio5">5</label>
+                            </div>
+                            <div class="col-1 form-check">
+                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio6">
+                                <label class="form-check-label" for="flexRadio6">6</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-md-2 col-form-label" for="section">Section</label>
+                            <div class="col-12 col-md-5">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                      <input type="radio" name="non-smoking" id="non-smoking" autocomplete="off" checked>Non-smoking
+                                    </label>
+                                    <label class="btn btn-danger">
+                                      <input type="radio" name="smoking" id="smoking" autocomplete="off">Smoking
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label for="datetime" class="col-sm-2 col-form-label">Date and Time</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="time" class="form-control" id="time" name="time" placeholder="Time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-sm-2">
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary">Reserve</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="jumbotron">
         <div class="container">
@@ -131,12 +205,15 @@
                         data-placement="bottom" // Place at the bottom
                     -->
                     <!-- This code needs some javascript code to be added so this works. See at the bottom -->
-                    <a class="btn btn-primary bg-warning btn-block text-dark" href="#myCard" 
+                    <!--a class="btn btn-primary bg-warning btn-block text-dark" href="#myCard" 
                         data-toggle="tooltip"
                         data-html="true" 
                         title="Or Call us at <br><strong>+851293214</strong>"
                         data-placement="bottom"
                         >
+                        Reserve a Table
+                    </a -->
+                    <a id="reserve-table" class="btn btn-primary bg-warning btn-block text-dark" data-toggle="modal" data-target="#mymodalForm">
                         Reserve a Table
                     </a>
                 </div>
@@ -145,6 +222,53 @@
     </header>
 
     <div class="container">
+        <div class="row row-content">
+            <div class="col">
+                <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid"
+                                src="img/uthappizza.png" alt="Uthappizza">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Uthappizza <span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-default">$4.99</span></h2>
+                                <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid"
+                                src="img/buffet.png" alt="buffet">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
+                                <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid"
+                                src="img/alberto.png" alt="alberto">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Alberto Somayya</h2>
+                                <h4>Executive Chef</h4>
+                                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1"></li>
+                        <li data-target="#mycarousel" data-slide-to="2"></li>
+                    </ol>
+                    <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+             </div>
+        </div>
+        
         <div class="row row-content align-items-center">
             <div class="col-12 col-sm-4 order-sm-last col-md-3">
                 <h3>Our Lipsmacking Culinary Creations</h3>
@@ -201,58 +325,13 @@
             </div>
         </div>
 
+        <!-- PREVIOUS VERSION OF THE FORM
+
         <div class="row row-content align-items-center justify-content-center">
             <div class="col-12 col-sm-8">
-                <div class="card" id="myCard">
-                    <!-- bg for the background -->
-                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <!-- Notice label for is the same as the input id... -->
-                            <label for="nbguests" class="col-sm-2 col-form-label">Number of Guests</label>
-                            <div class="col-1 form-check margin-left-15">
-                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio1">
-                                <label class="form-check-label" for="flexRadio1">1</label>
-                            </div>
-                            <div class="col-1 form-check">
-                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio2">
-                                <label class="form-check-label" for="flexRadio2">2</label>
-                            </div>
-                            <div class="col-1 form-check">
-                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio3">
-                                <label class="form-check-label" for="flexRadio3">3</label>
-                            </div>
-                            <div class="col-1 form-check">
-                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio4">
-                                <label class="form-check-label" for="flexRadio4">4</label>
-                            </div>
-                            <div class="col-1 form-check">
-                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio5">
-                                <label class="form-check-label" for="flexRadio5">5</label>
-                            </div>
-                            <div class="col-1 form-check">
-                                <input class="form-check-input" type="radio" name="nbguests" id="flexRadio6">
-                                <label class="form-check-label" for="flexRadio6">6</label>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="datetime" class="col-sm-2 col-form-label">Date and Time</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" id="date" name="date" placeholder="Date">
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="time" class="form-control" id="time" name="time" placeholder="Time">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="offset-sm-2 col-sm-3">
-                                <button type="submit" class="btn btn-primary">Reserve</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
-        </div>
+        </div-->
     </div>
 
     <footer class="footer">
@@ -304,11 +383,11 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
+    <!--script>
         $(document).ready(function() { // When the document is ready...
             $('[data-toggle="tooltip"]').tooltip(); //JQuery Syntax. Wherever there is a data-toggle="tooltip" in an attribute, active tooltip there...
         });
-    </script>
+    </script-->
     <!-- ***** New Code -->
     
 </body>
