@@ -60,9 +60,57 @@
                     <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span>Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
                 </ul>
+                <!-- This creates the link with the modal window -->
+                <span class="navbar-text">
+                    <a id="LoginButton" data-toggle="modal" data-target="#loginModal">
+                        <!-- Login Icon -->
+                        <span class="fa fa-sign-in"></span> Login</a>
+                </span>
             </div>
         </div>
     </nav>
+    <!-- 
+        HTML recommends all modal code to be written just over <header> tag
+    -->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login </h4>
+                    <!-- A "x" will be shown to dismiss/close the modal. This is specified by &times; (that is, the "x" sign) -->
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <!-- First botton has data-dismiss="modal" so the modal is closed when clicked-->
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <!-- This will initiate the sign in process -->
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="jumbotron">
         <div class="container">
@@ -76,7 +124,19 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a class="btn btn-primary bg-warning btn-block text-dark" href="#myCard">
+                    <!--a class="btn btn-primary bg-warning btn-block text-dark" href="#myCard" 
+                        data-toggle="tooltip"   // To create a tooltip
+                        data-html="true"        // This means that the title can be formatted using HTML
+                        title="Or Call us at <br><strong>+851293214</strong>"   // Indeed we use HTML
+                        data-placement="bottom" // Place at the bottom
+                    -->
+                    <!-- This code needs some javascript code to be added so this works. See at the bottom -->
+                    <a class="btn btn-primary bg-warning btn-block text-dark" href="#myCard" 
+                        data-toggle="tooltip"
+                        data-html="true" 
+                        title="Or Call us at <br><strong>+851293214</strong>"
+                        data-placement="bottom"
+                        >
                         Reserve a Table
                     </a>
                 </div>
@@ -244,6 +304,11 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() { // When the document is ready...
+            $('[data-toggle="tooltip"]').tooltip(); //JQuery Syntax. Wherever there is a data-toggle="tooltip" in an attribute, active tooltip there...
+        });
+    </script>
     <!-- ***** New Code -->
     
 </body>
