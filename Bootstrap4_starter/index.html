@@ -62,9 +62,12 @@
                 </ul>
                 <!-- This creates the link with the modal window -->
                 <span class="navbar-text">
-                    <a id="LoginButton" data-toggle="modal" data-target="#loginModal">
+                    <!--a id="login-button" data-toggle="modal" data-target="#loginModal"-->
+                    <!-- data-* removed -->
+                    <a id="login-button">
                         <!-- Login Icon -->
-                        <span class="fa fa-sign-in"></span> Login</a>
+                        <span class="fa fa-sign-in"></span> Login
+                    </a>
                 </span>
             </div>
         </div>
@@ -213,7 +216,9 @@
                         >
                         Reserve a Table
                     </a -->
-                    <a id="reserve-table" class="btn btn-primary bg-warning btn-block text-dark" data-toggle="modal" data-target="#mymodalForm">
+                    <!-- a id="reserve-table" class="btn btn-primary bg-warning btn-block text-dark" data-toggle="modal" data-target="#mymodalForm" -->
+                    <!-- Remove data-* attributes -->
+                    <a id="reserve-table" class="btn btn-primary bg-warning btn-block text-dark">
                         Reserve a Table
                     </a>
                 </div>
@@ -399,32 +404,9 @@
             $('[data-toggle="tooltip"]').tooltip(); //JQuery Syntax. Wherever there is a data-toggle="tooltip" in an attribute, active tooltip there...
         });
     </script-->
-    <!-- ***** New Code -->
-
-    <!-- JQuery Code -->
-    <script>
-        $(document).ready(function(){
-            $('#mycarousel').carousel( { interval: 500 } );
-            /*$('#carousel-pause').click(function(){
-                $('#mycarousel').carousel('pause');
-            });
-            $('#carousel-play').click(function(){
-                $('#mycarousel').carousel('cycle');
-            });*/
-            $('#carouselButton').click(function() {
-                var theSpan = $('#carouselButton').children('span')
-                var willPause = theSpan.hasClass('fa-pause');
-                theSpan.removeClass(willPause ? 'fa-pause' : 'fa-play');
-                theSpan.addClass( willPause ? 'fa-play' : 'fa-pause');
-                if (willPause) {
-                    $('#mycarousel').carousel('pause');
-                }
-                else {
-                    $('#mycarousel').carousel('cycle');
-                }
-            });
-        });
-    </script>
+    
+    <!-- My Code -->
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

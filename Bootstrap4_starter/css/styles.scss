@@ -71,3 +71,24 @@ body {
     position: absolute;
     bottom: 0px;
 }
+
+#login-button {
+    cursor: pointer;
+}
+
+#carouselButton {
+    z-index: 1;
+}
+
+.modal {
+    .modal-header {
+        background-color: $background-dark;
+        color: white;
+        .close {
+            color: floralwhite;
+        }
+    }
+    .modal-body {
+        background-color: $background-pale;
+    }
+}
