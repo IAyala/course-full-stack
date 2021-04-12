@@ -1,1 +1,4 @@
 node_modules
+dist
+*/.tmp/*
+styles.css.map
