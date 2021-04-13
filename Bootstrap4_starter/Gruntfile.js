@@ -8,6 +8,7 @@ module.exports = function(grunt) {
         useminPrepare: 'grunt-usemin'
     });
 
+    
     grunt.initConfig({
         sass: {
             options: {
