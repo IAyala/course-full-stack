@@ -1,0 +1,81 @@
+.row-header{
+  margin:0px auto;
+  padding:0px auto;
+}
+
+.row-content {
+  margin:0px auto;
+  padding: 50px 0px 50px 0px;
+  border-bottom: 1px ridge;
+  min-height:400px;
+}
+
+.footer{
+  background-color: #D1C4E9;
+  margin:0px auto;
+  padding: 20px 0px 20px 0px;
+}
+
+.jumbotron {
+  margin:0px auto;
+  background: #9575CD ;
+  color:floralwhite;
+}
+
+address{
+  font-size:80%;
+  margin:0px;
+  color:#0f0f0f;
+}
+
+.navbar-dark {
+  background-color: #512DA8;
+  margin: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navbar-brand span {
+  font-size: 25px;
+  color: white;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0px;
+  left: 25px;
+}
+
+.row .card-menu:last-child {
+  margin-bottom: 20px;
+}
+
+.card-menu {
+  margin-top: 20px;
+}
+
+.dish-detail {
+  margin-bottom: 10px;
+}
+
+.card-img {
+  border: 3px double black;
+}
+
+.nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+.nav-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0px;
+  list-style-type: none;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  padding-top: 15px;
+}

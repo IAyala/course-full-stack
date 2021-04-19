@@ -1,6 +1,6 @@
 import { Card, CardImg, CardText, CardBody, CardTitle, ListGroup, ListGroupItem } from 'reactstrap';
 
-function DishDetailComponent(props) {
+function DishDetail(props) {
     function getDateOptions() {
         return {
             year: 'numeric',
@@ -40,7 +40,7 @@ function DishDetailComponent(props) {
     
     if(props.dish != null) {
         return (
-            <div className="container">
+            <div className="container dish-detail">
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
                         <Card>
@@ -62,4 +62,4 @@ function DishDetailComponent(props) {
     return(<div></div>); //Nothing will be rendered if selectedDish == null
 }
 
-export default DishDetailComponent;
+export default DishDetail;
