@@ -2,6 +2,8 @@ import { Card, CardImg, CardText, CardBody, CardTitle, ListGroup, ListGroupItem 
 import { Link } from 'react-router-dom';
 
 function DishDetail(props) {
+    // Remember to pass the parameter between {} as this is used as a component
+    // <RenderAllComments comments={props.comments} />
     function RenderAllComments({comments}) {
         
         function getDateString(date) {
