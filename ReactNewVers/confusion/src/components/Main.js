@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
 import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
 import Menu from './Menu';
 import About from './AboutComponent';
-import Contact from './ContactComponent';
+import ContactRedux from './ContactCompRedux';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DishDetail from './DishDetail';
 import { connect } from 'react-redux';
@@ -60,7 +59,7 @@ function Main(props) {
                 <Route path="/home" component={HomePage}></Route>
                 <Route exact path="/menu" component={() => <Menu dishes={props.dishes}/>}></Route>
                 <Route path="/menu/:dishId" component={DishWithId}></Route>
-                <Route exact path="/contactus" component={Contact} />
+                <Route exact path="/contactus" component={ContactRedux} />
                 <Route exact path="/aboutus" component={() => <About leaders={props.leaders}/>}></Route>
                 <Redirect to="/home" ></Redirect>
             </Switch>
