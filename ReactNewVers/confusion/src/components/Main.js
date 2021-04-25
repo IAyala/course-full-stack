@@ -9,6 +9,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DishDetail from './DishDetail';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';
 
 // This method allows to get these variables into this Component
 const mapStateToProps = state => {
@@ -23,7 +24,8 @@ const mapStateToProps = state => {
 // This method allows to dispatch actions (plain JS objects) to modify the state
 const mapDispatchToProps = (dispatch) => ({
     addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
-    fetchDishes: () => {dispatch(fetchDishes())}
+    fetchDishes: () => { dispatch(fetchDishes()) },
+    resetFeedbackForm: () => { dispatch(actions.reset('feedback')) } // Have to update the form to label it as "feedback"
 });
 
 class Main extends Component {
@@ -81,7 +83,7 @@ class Main extends Component {
                     <Route path="/home" component={HomePage}></Route>
                     <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes}/>}></Route>
                     <Route path="/menu/:dishId" component={DishWithId}></Route>
-                    <Route exact path="/contactus" component={ContactRedux} />
+                    <Route exact path="/contactus" component={() => <ContactRedux resetFeedbackForm={this.props.resetFeedbackForm}></ContactRedux>}></Route>
                     <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders}/>}></Route>
                     <Redirect to="/home" ></Redirect>
                 </Switch>

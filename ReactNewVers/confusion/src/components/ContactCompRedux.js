@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Button, Label, Col, Row } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, Form, Errors, actions } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -21,8 +21,11 @@ class ContactRedux extends Component {
     handleSubmit(values) {
         const message = "Current State is: " + JSON.stringify(values);
         alert(message);
+        this.props.resetFeedbackForm();
     }
 
+    // Here where it says Form model="feedback" this is because in Main Component we have:
+    // resetFeedbackForm: () => { dispatch(actions.reset('****** feedback ******')) }
     render() {
         return(
             <div className="container">
@@ -67,7 +70,7 @@ class ContactRedux extends Component {
                         <h3>Send us Your Feedback</h3>
                     </div>
                     <div className="col-12 col-md-9">
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -185,7 +188,7 @@ class ContactRedux extends Component {
                                     </Button>
                                 </Col>
                             </Row>
-                        </LocalForm>
+                        </Form>
                     </div>
                 </div>
             </div>
