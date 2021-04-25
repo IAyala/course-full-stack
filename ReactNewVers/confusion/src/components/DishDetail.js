@@ -6,6 +6,7 @@ import { Button, Label, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Loading } from './LoadingComponent';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -27,9 +28,8 @@ class CommentFormComponent extends Component {
     }
 
     handleSubmit(values) {
-        const message = "Current State is: " + JSON.stringify(values);
-        alert(message);
         this.toggleModal();
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -91,7 +91,7 @@ class CommentFormComponent extends Component {
 function DishDetail(props) {
     // Remember to pass the parameter between {} as this is used as a component
     // <RenderAllComments comments={props.comments} />
-    function RenderAllComments({comments}) {
+    function RenderAllComments({comments, addComment, dishId}) {
         
         function getDateString(date) {
             return date.toLocaleDateString("en-US", getDateOptions());
@@ -129,7 +129,7 @@ function DishDetail(props) {
                     <ListGroup>
                         {theComments}
                     </ListGroup>
-                    <CommentFormComponent/>
+                    <CommentFormComponent dishId={dishId} addComment={addComment}/>
                 </div>
             </div>
         );
@@ -149,7 +149,25 @@ function DishDetail(props) {
         );
     }
 
-    if(props.dish != null) {
+    if(props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        )
+    }
+    else if(props.errMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>{props.errMess}</h4>
+                </div>
+            </div>
+        )
+    }
+    else if(props.dish != null) {
         return (
             <div className="container dish-detail">
                 <div className="row">
@@ -164,12 +182,15 @@ function DishDetail(props) {
                 </div>
                 <div className="row">
                     <RenderDish dish={props.dish} />
-                    <RenderAllComments comments={props.comments} />
+                    <RenderAllComments
+                        comments={props.comments} 
+                        addComment={props.addComment}
+                        dishId={props.dish.id} >
+                    </RenderAllComments>
                 </div>
             </div>
         );
     }
-
     return(<div></div>); //Nothing will be rendered if selectedDish == null
 }
 

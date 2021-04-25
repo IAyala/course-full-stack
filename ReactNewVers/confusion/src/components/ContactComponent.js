@@ -41,11 +41,9 @@ class Contact extends Component {
     }
 
     handleBlur = (field) => (event) => {
-        console.log(this.state.touched)
         this.setState({
             touched: { ...this.state.touched, [field]: true }
         });
-        console.log(this.state.touched)
     }
 
     validate(firstname, lastname, telnum, email) {
@@ -77,7 +75,6 @@ class Contact extends Component {
 
     handleSubmit(event) {
         const message = "Current State is: " + JSON.stringify(this.state);
-        console.log(message);
         alert(message);
         event.preventDefault();
     }
