@@ -2,14 +2,17 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseURL } from '../shared/baseURL';
 
 function Menu(props) {
     function RenderDish({theDish}) {
         // Use backquotes `` for the link "to" parameter
+        // <CardImg width="100%" src={baseURL + theDish.image} alt={theDish.name} /> --> The image will be fetched directly from the server
+        // We could remove the images from "public" folder, except the logo...
         return (
             <Card>
                 <Link to={`/menu/${theDish.id}`} >
-                    <CardImg width="100%" src={theDish.image} alt={theDish.name} />
+                    <CardImg width="100%" src={baseURL + theDish.image} alt={theDish.name} />
                     <CardImgOverlay>
                         <CardTitle>{theDish.name}</CardTitle>
                     </CardImgOverlay>
