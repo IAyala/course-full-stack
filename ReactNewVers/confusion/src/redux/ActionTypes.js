@@ -11,3 +11,7 @@ export const ADD_PROMOS = 'ADD_PROMOS';
 // No comments loading because by the time we go to DishDetail component, the Comments are already fetched
 export const COMMENTS_FAILED = 'COMMENTS_FAILED';
 export const ADD_COMMENTS = 'ADD_COMMENTS';
+
+export const LEADERS_LOADING = 'LEADERS_LOADING';
+export const LEADERS_FAILED = 'LEADERS_FAILED';
+export const ADD_LEADERS = 'ADD_LEADERS';

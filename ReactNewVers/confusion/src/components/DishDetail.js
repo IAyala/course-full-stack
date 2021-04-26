@@ -8,6 +8,7 @@ import React from 'react';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseURL } from '../shared/baseURL';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -30,7 +31,7 @@ class CommentFormComponent extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -92,7 +93,7 @@ class CommentFormComponent extends Component {
 function DishDetail(props) {
     // Remember to pass the parameter between {} as this is used as a component
     // <RenderAllComments comments={props.comments} />
-    function RenderAllComments({comments, addComment, dishId}) {
+    function RenderAllComments({comments, postComment, dishId}) {
         
         function getDateString(date) {
             return date.toLocaleDateString("en-US", getDateOptions());
@@ -108,10 +109,12 @@ function DishDetail(props) {
         
         function RenderOneComment(comment) {
             return (
-                <ListGroupItem id={comment.id} className="comments-list">
-                    <p>{comment.comment}</p>
-                    <p>-- {comment.author}, {getDateString(new Date(comment.date))}</p>
-                </ListGroupItem>
+                <Fade in>
+                    <ListGroupItem id={comment.id} className="comments-list">
+                        <p>{comment.comment}</p>
+                        <p>-- {comment.author}, {getDateString(new Date(comment.date))}</p>
+                    </ListGroupItem>
+                </Fade>
             );
         }
         
@@ -128,9 +131,11 @@ function DishDetail(props) {
                 <h4>Comments</h4>
                 <div>
                     <ListGroup>
-                        {theComments}
+                        <Stagger in>
+                            {theComments}
+                        </Stagger>
                     </ListGroup>
-                    <CommentFormComponent dishId={dishId} addComment={addComment}/>
+                    <CommentFormComponent dishId={dishId} postComment={postComment}/>
                 </div>
             </div>
         );
@@ -139,13 +144,15 @@ function DishDetail(props) {
     function RenderDish({dish}) {
         return (
             <div className="col-12 col-md-5 m-1">
-                <Card>
-                    <CardImg width="100%" src={baseURL + dish.image} alt={dish.name}/>
-                    <CardBody>
-                        <CardTitle>{dish.name}</CardTitle>
-                        <CardText>{dish.description}</CardText>
-                    </CardBody>
-                </Card>
+                <FadeTransform in transformProps = {{exitTransform: 'scale(0.5) translateY(-50%)'}}>
+                    <Card>
+                        <CardImg width="100%" src={baseURL + dish.image} alt={dish.name}/>
+                        <CardBody>
+                            <CardTitle>{dish.name}</CardTitle>
+                            <CardText>{dish.description}</CardText>
+                        </CardBody>
+                    </Card>
+                </FadeTransform>
             </div>
         );
     }
@@ -185,7 +192,7 @@ function DishDetail(props) {
                     <RenderDish dish={props.dish} />
                     <RenderAllComments
                         comments={props.comments} 
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         dishId={props.dish.id} >
                     </RenderAllComments>
                 </div>

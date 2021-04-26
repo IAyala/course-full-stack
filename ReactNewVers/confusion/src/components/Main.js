@@ -8,8 +8,9 @@ import ContactRedux from './ContactCompRedux';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DishDetail from './DishDetail';
 import { connect } from 'react-redux';
-import { addComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
+import { fetchDishes, fetchComments, fetchPromos, postComment, fetchLeaders, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 // This method allows to get these variables into this Component
 const mapStateToProps = state => {
@@ -23,11 +24,13 @@ const mapStateToProps = state => {
 
 // This method allows to dispatch actions (plain JS objects) to modify the state
 const mapDispatchToProps = (dispatch) => ({
-    addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
+    postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
     fetchDishes: () => { dispatch(fetchDishes()) },
     resetFeedbackForm: () => { dispatch(actions.reset('feedback')) }, // Have to update the form to label it as "feedback"
     fetchPromos: () => { dispatch(fetchPromos()) },
-    fetchComments: () => { dispatch(fetchComments()) }
+    fetchComments: () => { dispatch(fetchComments()) },
+    fetchLeaders: () => { dispatch(fetchLeaders()) },
+    postFeedback: (firstname, lastname, telnum, email, agree, contactType, message) => dispatch(postFeedback(firstname, lastname, telnum, email, agree, contactType, message))
 });
 
 class Main extends Component {
@@ -46,6 +49,7 @@ class Main extends Component {
         this.props.fetchDishes();
         this.props.fetchComments();
         this.props.fetchPromos();
+        this.props.fetchLeaders();
     }
 
     render() {
@@ -60,10 +64,12 @@ class Main extends Component {
                     dish={getFeatured(this.props.dishes.dishes)} // State has changed its shape. See dishes.js reducer for details
                     dishesLoading={this.props.dishes.isLoading}
                     dishesErrMess={this.props.dishes.errmess}
-                    leader={getFeatured(this.props.leaders)}
+                    leader={getFeatured(this.props.leaders.leaders)}
+                    leadersLoading={this.props.leaders.isLoading}
+                    leadersErrMess={this.props.leaders.errmess}
                     promotion={getFeatured(this.props.promotions.promotions)}
                     promotionsLoading={this.props.promotions.isLoading}
-                    promotionsErrMess={this.props.promotions.errMess}
+                    promotionsErrMess={this.props.promotions.errmess}
                 />
             );
         }
@@ -77,7 +83,7 @@ class Main extends Component {
                     isLoading={this.props.dishes.isLoading}
                     errMess={this.props.dishes.errmess}
                     comments={this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
-                    addComment={this.props.addComment}
+                    postComment={this.props.postComment}
                     commentsErrMess={this.props.comments.errmess}
                 >
                 </DishDetail>
@@ -86,14 +92,20 @@ class Main extends Component {
         return (
             <div>
                 <Header />
-                <Switch>
-                    <Route path="/home" component={HomePage}></Route>
-                    <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes}/>}></Route>
-                    <Route path="/menu/:dishId" component={DishWithId}></Route>
-                    <Route exact path="/contactus" component={() => <ContactRedux resetFeedbackForm={this.props.resetFeedbackForm}></ContactRedux>}></Route>
-                    <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders}/>}></Route>
-                    <Redirect to="/home" ></Redirect>
-                </Switch>
+                <TransitionGroup>
+                    <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+                        <Switch>
+                            <Route path="/home" component={HomePage}></Route>
+                            <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes}/>}></Route>
+                            <Route path="/menu/:dishId" component={DishWithId}></Route>
+                            <Route exact path="/contactus" component={
+                                () => <ContactRedux resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback}/>
+                            }></Route>
+                            <Route exact path="/aboutus" component={() => <About leadersInfo={this.props.leaders}/>}></Route>
+                            <Redirect to="/home" ></Redirect>
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
                 <Footer />
             </div>
         );
